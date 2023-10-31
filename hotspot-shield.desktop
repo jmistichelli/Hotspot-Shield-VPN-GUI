@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name[en_US]=HotSpot Shield VPN
+GenericName[en_US]=Hotspot Shield VPN
+Comment[en_US]=Hotspot Shield VPN
+Exec=python3 /usr/local/bin/vpngui.py
+Path=/home/
+Icon=/usr/share/icons/HighContrast/48x48/status/network-wireless-hotspot.png
+Terminal=false
+Type=Application
+Categories=Application
