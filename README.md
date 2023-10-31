@@ -8,7 +8,6 @@ Requirements:
  vpngui.py - Main program
  
  config.py - Configuration file that must be edited. It will contain your username, password and default VPN location.
- 
  Example:
  
     vpnusername = 'your@email.here'
