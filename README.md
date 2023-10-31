@@ -12,7 +12,9 @@ Requirements:
  - Presents the option to start VPN if not started, and to stop the VPN if started, with one button. 
  - Displays the status of the VPN (connected/notconnected) and IP/location information related to VPN termination point.
 
- Note: If the VPN is active and you want to change the VPN location you must stop the VPN first, choose the new location, then start the VPN again.
+ Notes:
+ - You can exit the vpngui.py app and, by default, the VPN will stay connected until VPN timers expire or there is a service interuption.
+ - If the VPN is active and you want to change the VPN location you must stop the VPN first, choose the new location, then start the VPN again.
  
  # config.py
  Configuration file that must be initially edited. It will contain your default username, password and VPN location.
