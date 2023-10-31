@@ -16,7 +16,7 @@ Requirements:
  - You can exit the vpngui.py app and, by default, the VPN will stay connected until VPN timers expire or there is a service interuption.
  - If the VPN is active and you want to change the VPN location you must stop the VPN first, choose the new location, then start the VPN again.
  
- # config.py
+ # vpnconfig.py
  Configuration file that must be initially edited. It will contain your default username, password and VPN location.
  
  Example:
@@ -26,3 +26,6 @@ Requirements:
     vpnpassword = 'your_password_here'
     
     defaultlocation = 'US - United States'
+
+# hotspot-shield.desktop
+This is the application shortcut. Copy this to the desktop. Right click on it and click 'Allow Launching'. The shortcut assumes you have the python files in /usr/local/bin/. It also assumes you are using /usr/share/icons/HighContrast/48x48/status/network-wireless-hotspot.png as the icon. Adjust the file as necessary to reflect the location and filenames in your implementation.
