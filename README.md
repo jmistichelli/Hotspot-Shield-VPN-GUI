@@ -5,5 +5,5 @@ Requirements:
 - Hotspot Shield VPN Linux installation package
 - Python Pexpect module
 
-vpngui.py - Main program
+vpngui.py - Main program\n
 config.py - Configuration file that must be edited. It will contain you username, password and default VPN location. 
