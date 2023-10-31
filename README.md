@@ -28,4 +28,4 @@ Requirements:
     defaultlocation = 'US - United States'
 
 # hotspot-shield.desktop
-This is the application shortcut. Copy this to the desktop. Right click on it and click 'Allow Launching'. The shortcut assumes you have the python files in /usr/local/bin/. It also assumes you are using /usr/share/icons/HighContrast/48x48/status/network-wireless-hotspot.png as the icon. Adjust the file as necessary to reflect the location and filenames in your implementation.
+This is the application shortcut. Copy this to the desktop. Right click on it and click 'Allow Launching'. The shortcut assumes you have the python files in /usr/local/bin/. It also assumes you are using /usr/share/icons/HighContrast/48x48/status/network-wireless-hotspot.png as the icon. Adjust the contents as necessary to reflect the location and filenames in your implementation.
