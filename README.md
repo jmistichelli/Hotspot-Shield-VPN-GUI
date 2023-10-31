@@ -6,8 +6,13 @@ Requirements:
  - Python Pexpect module
 
  vpngui.py - Main program
- config.py - Configuration file that must be edited. It will contain your username, password and default VPN location. 
+ 
+ config.py - Configuration file that must be edited. It will contain your username, password and default VPN location.
+ 
  Example:
+ 
     vpnusername = 'your@email.here'
+    
     vpnpassword = 'your_password_here'
+    
     defaultlocation = 'US - United States'
