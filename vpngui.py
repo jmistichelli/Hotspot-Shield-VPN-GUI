@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
-import config as config
+import vpnconfig as config
 import subprocess
 import pexpect
 import time
