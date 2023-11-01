@@ -21,11 +21,6 @@ global locationselected
 global statusbox
 
 
-# def run_command(command):
-#     rawoutput = subprocess.check_output(command.split())
-#     statuslbl.config(text=rawoutput.decode("utf-8"))
-# 
-
 def get_ipinfo():
     bin_ipinfo = subprocess.check_output('curl ipinfo.io'.split())
     ipinfo = ast.literal_eval(bin_ipinfo.decode("utf-8"))
@@ -45,7 +40,7 @@ def print_status():
 
     time.sleep(2)
     statusbox.insert('end', get_ipinfo())
-#    statusbox.config(state='disabled')
+
 
 def start_vpn():
     child = pexpect.spawn('hotspotshield account signin')
@@ -55,6 +50,7 @@ def start_vpn():
     child.sendline(config.vpnpassword)
     time.sleep(1)
     location = drop.get().split(" ")
+    drop.config(state='disabled')
     subprocess.run(["hotspotshield", "connect", location[0]])
     startbutton.grid_forget()
     stopbutton.grid(row=3, column=0, columnspan=2, pady=30)
@@ -63,6 +59,7 @@ def start_vpn():
 
 
 def stop_vpn():
+    drop.config(state='normal')
     subprocess.run(["hotspotshield", "disconnect"])
     stopbutton.grid_forget()
     startbutton.grid(row=3, column=0, columnspan=2, pady=30)
@@ -124,6 +121,8 @@ stopbutton = tk.Button(root, text="Stop VPN", font=('Arial bold', 20), command=s
 if "VPN connection state : connected" in vpn_status:
     startbutton.grid_forget()
     stopbutton.grid(row=3, column=0, columnspan=2, pady=30)
+    drop.config(state='disabled')
+
 else:
     stopbutton.grid_forget()
     startbutton.grid(row=3, column=0, columnspan=2, pady=30)
@@ -134,6 +133,7 @@ statuslblfrm.grid(row=4, column=0, columnspan=2, sticky=tk.NSEW)
 
 statusbox = Text(statuslblfrm, height=5, width=40)
 statusbox.grid(row=0, column=0)
+
 
 print_status()
 
