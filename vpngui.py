@@ -11,19 +11,20 @@ import ast
 root = tk.Tk()
 
 # create main window
-root.geometry("400x600")
+root.geometry("375x400")
 root.title("Hotspot Shield VPN")
 root.config(padx=20, pady=20)
 
 global startbutton
 global stopbutton
 global locationselected
+global statusbox
 
 
-def run_command(command):
-    rawoutput = subprocess.check_output(command.split())
-    statuslbl.config(text=rawoutput.decode("utf-8"))
-
+# def run_command(command):
+#     rawoutput = subprocess.check_output(command.split())
+#     statuslbl.config(text=rawoutput.decode("utf-8"))
+# 
 
 def get_ipinfo():
     bin_ipinfo = subprocess.check_output('curl ipinfo.io'.split())
@@ -32,10 +33,19 @@ def get_ipinfo():
 
 
 def print_status():
+    statusbox.delete('1.0', END)
     rawoutput = subprocess.check_output('hotspotshield status'.split())
-    statuslbl.config(text=rawoutput.decode("utf-8"))
-    iplabel.config(text=get_ipinfo())
 
+    if "VPN connection state : connected" in rawoutput.decode("utf-8"):
+        statusbox.insert('end', 'VPN connection state : Connected\n')
+    elif "VPN connection state : disconnected" in rawoutput.decode("utf-8"):
+        statusbox.insert('end', 'VPN connection state : Not Connected\n')
+    else:
+        statusbox.insert('end', 'VPN connection state : Unknown\n')
+
+    time.sleep(2)
+    statusbox.insert('end', get_ipinfo())
+#    statusbox.config(state='disabled')
 
 def start_vpn():
     child = pexpect.spawn('hotspotshield account signin')
@@ -91,10 +101,10 @@ loclbl = tk.Label(root, text="Location:")
 loclbl.grid(row=2, column=0, pady=5)
 
 # single line input box
-usernameentry = tk.Entry(root)
+usernameentry = tk.Entry(root, width=22)
 usernameentry.grid(row=0, column=1, pady=5)
 usernameentry.insert(0, config.vpnusername)
-passwordentry = tk.Entry(root, show='*')
+passwordentry = tk.Entry(root, show='*', width=22)
 passwordentry.grid(row=1, column=1, pady=5)
 passwordentry.insert(0, config.vpnpassword)
 
@@ -122,11 +132,8 @@ else:
 statuslblfrm = ttk.LabelFrame(root, text="Status:")
 statuslblfrm.grid(row=4, column=0, columnspan=2, sticky=tk.NSEW)
 
-statuslbl = tk.Label(statuslblfrm, text="", anchor='w')
-statuslbl.grid(row=0, column=0, sticky=tk.W)
-
-iplabel = tk.Label(statuslblfrm, text='')
-iplabel.grid(row=1, column=0, sticky=tk.W)
+statusbox = Text(statuslblfrm, height=5, width=40)
+statusbox.grid(row=0, column=0)
 
 print_status()
 
