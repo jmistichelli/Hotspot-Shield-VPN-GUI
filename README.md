@@ -5,6 +5,7 @@ Requirements:
  - Hotspot Shield VPN Linux installation package (hotspotshield_1.0.7_amd64.deb)
  - Tkinter (sudo apt install python3-tk)
  - Pexpect module (pip install pexpect)
+ - Curl module (sudo apt install curl)
 
  # vpngui.py
  Main program. Runs the GUI.
