@@ -3,6 +3,7 @@ This is a Python3 GUI for the Linux Hotspot Shield VPN application. There is no 
 
 Requirements:
  - Hotspot Shield VPN Linux installation package
+ - Tkinter (sudo apt install python3-tk)
  - Python Pexpect module
 
  # vpngui.py
