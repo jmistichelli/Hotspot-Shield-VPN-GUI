@@ -6,6 +6,7 @@ Requirements:
  - Tkinter (sudo apt install python3-tk)
  - Pexpect module (pip install pexpect)
  - Curl module (sudo apt install curl)
+
    Note: All can be installed using included requirments.txt file (pip install -r /path/to/requirements.txt) 
 
  # vpngui.py
