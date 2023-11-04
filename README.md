@@ -6,7 +6,8 @@ Requirements:
  - Tkinter (sudo apt install python3-tk)
  - Pexpect module (pip install pexpect)
  - Curl module (sudo apt install curl)
- - All can be installed using included requirments.txt file (pip install -r /path/to/requirements.txt) 
+ 
+Python packages can be installed using included requirments.txt file (pip install -r /path/to/requirements.txt). The VPN software requires manual installation. 
 
  # vpngui.py
  Main program. Runs the GUI.
