@@ -7,7 +7,7 @@ Requirements:
  - Pexpect module (pip install pexpect)
  - Curl module (sudo apt install curl)
  
-Python packages can be installed using included requirments.txt file (pip install -r /path/to/requirements.txt). The VPN software requires manual installation. 
+Note:Python packages can be installed using included requirments.txt file (pip install -r /path/to/requirements.txt). The VPN software requires manual installation. 
 
  # vpngui.py
  Main program. Runs the GUI.
