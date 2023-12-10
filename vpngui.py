@@ -67,25 +67,29 @@ def stop_vpn():
 
 
 def getlocations():
-    locations_output = subprocess.check_output("hotspotshield locations".split())
-    locationlist = locations_output.decode("utf-8").splitlines()
 
-    del (locationlist[0])
-    del (locationlist[0])
-    i = 0
-    for item in locationlist:
-        locationlist[i] = item.replace(' ', '-', 1)
-        i += 1
-    i = 0
-    for item in locationlist:
-        locationlist[i] = item.replace(' ', '')
-        i += 1
-    i = 0
-    for item in locationlist:
-        locationlist[i] = item.replace('-', ' - ')
-        i += 1
+    try:
+        locations_output = subprocess.check_output("hotspotshield locations".split())
+        locationlist = locations_output.decode("utf-8").splitlines()
 
-    return locationlist
+        del (locationlist[0])
+        del (locationlist[0])
+        i = 0
+        for item in locationlist:
+            locationlist[i] = item.replace(' ', '-', 1)
+            i += 1
+        i = 0
+        for item in locationlist:
+            locationlist[i] = item.replace(' ', '')
+            i += 1
+        i = 0
+        for item in locationlist:
+            locationlist[i] = item.replace('-', ' - ')
+            i += 1
+        return locationlist
+
+    except:
+        return ['']
 
 
 userlbl = tk.Label(root, text="Username:")
@@ -126,6 +130,7 @@ if "VPN connection state : connected" in vpn_status:
 else:
     stopbutton.grid_forget()
     startbutton.grid(row=3, column=0, columnspan=2, pady=30)
+    subprocess.run(["hotspotshield", "start"])
 
 
 statuslblfrm = ttk.LabelFrame(root, text="Status:")
