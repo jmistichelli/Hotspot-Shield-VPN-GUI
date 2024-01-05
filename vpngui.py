@@ -6,6 +6,7 @@ import subprocess
 import pexpect
 import time
 import ast
+import threading
 
 
 root = tk.Tk()
@@ -54,8 +55,9 @@ def start_vpn():
     subprocess.run(["hotspotshield", "connect", location[0]])
     startbutton.grid_forget()
     stopbutton.grid(row=3, column=0, columnspan=2, pady=30)
-    time.sleep(1)
-    print_status()
+#    time.sleep(1)
+#    print_status()
+    threading.Thread(target=print_status).start()
 
 
 def stop_vpn():
@@ -63,8 +65,8 @@ def stop_vpn():
     subprocess.run(["hotspotshield", "disconnect"])
     stopbutton.grid_forget()
     startbutton.grid(row=3, column=0, columnspan=2, pady=30)
-    print_status()
-
+    # print_status()
+    threading.Thread(target=print_status).start()
 
 def getlocations():
 
@@ -140,6 +142,8 @@ statusbox = Text(statuslblfrm, height=5, width=40)
 statusbox.grid(row=0, column=0)
 
 
-print_status()
+# print_status()
+threading.Thread(target=print_status).start()
 
 root.mainloop()
+
