@@ -55,7 +55,7 @@ def start_vpn():
     subprocess.run(["hotspotshield", "connect", location[0]])
     startbutton.grid_forget()
     stopbutton.grid(row=3, column=0, columnspan=2, pady=30)
-#    time.sleep(1)
+    time.sleep(1)
 #    print_status()
     threading.Thread(target=print_status).start()
 
